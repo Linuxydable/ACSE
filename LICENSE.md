@@ -1,5 +1,6 @@
 MIT License
 
+Copyright (c) 2022 John (Linuxydable) Benard
 Copyright (c) 2018 Cuyler36
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
