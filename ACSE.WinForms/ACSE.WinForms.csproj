@@ -1,20 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Costura.Fody.3.1.6\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.3.1.6\build\Costura.Fody.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B4A73545-0177-4159-8602-648AA3058650}</ProjectGuid>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ACSE.WinForms</RootNamespace>
     <AssemblyName>ACSE</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,1421 +18,1235 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <LangVersion>latest</LangVersion>
+    <PostBuildEvent>rm $(TargetDir)Newtonsoft.Json.xml
+                       rm $(TargetDir)$(TargetName).pdb
+                       rm $(TargetDir)$(TargetName).exe.config
+       </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>ACSE_Logo_2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Costura, Version=3.1.6.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
-      <HintPath>..\packages\Costura.Fody.3.1.6\lib\net46\Costura.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Drawing.Common.4.5.1\lib\net461\System.Drawing.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AboutBox\AboutBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutBox\AboutBox.Designer.cs">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Backups\Backup.cs" />
-    <Compile Include="Controls\AcreItemEditor.cs">
+    <Compile Update="Controls\AcreItemEditor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\BadgeControl.cs">
+    <Compile Update="Controls\BadgeControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FurnitureItemEditor.cs">
+    <Compile Update="Controls\FurnitureItemEditor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HouseControl.cs">
+    <Compile Update="Controls\HouseControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ItemDisplay.cs">
+    <Compile Update="Controls\ItemDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ItemDisplay.Designer.cs">
-      <DependentUpon>ItemDisplay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ItemEditor.cs">
+    <Compile Update="Controls\ItemEditor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\MessageEditor.cs">
+    <Compile Update="Controls\MessageEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\MessageEditor.Designer.cs">
-      <DependentUpon>MessageEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\OffsetablePictureBox.cs">
+    <Compile Update="Controls\OffsetablePictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\PictureBoxWithInterpolationMode.cs">
+    <Compile Update="Controls\PictureBoxWithInterpolationMode.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\PlaceholderTextBox.cs">
+    <Compile Update="Controls\PlaceholderTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\RegexTextBox.cs">
+    <Compile Update="Controls\RegexTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ShopControls\FurnitureShopEditorControl.cs">
+    <Compile Update="Controls\ShopControls\FurnitureShopEditorControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ShopControls\ShopEditorControl.cs">
+    <Compile Update="Controls\ShopControls\ShopEditorControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\SingleItemEditor.cs">
+    <Compile Update="Controls\SingleItemEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\SingleItemEditor.Designer.cs">
-      <DependentUpon>SingleItemEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\StalkMarketEditor.cs">
+    <Compile Update="Controls\StalkMarketEditor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\VillagerControl.cs">
+    <Compile Update="Controls\VillagerControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\VillagerDisplay.cs">
+    <Compile Update="Controls\VillagerDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\VillagerDisplay.Designer.cs">
-      <DependentUpon>VillagerDisplay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Extensions\ControlExtensions.cs" />
-    <Compile Include="Forms\ItemSelectionDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ItemSelectionDialog.Designer.cs">
-      <DependentUpon>ItemSelectionDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\VillagerSelectionDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\VillagerSelectionDialog.Designer.cs">
-      <DependentUpon>VillagerSelectionDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Imaging\ImageGeneration.cs" />
-    <Compile Include="ItemColorEditor\ItemColorEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ItemColorEditor\ItemColorEditor.Designer.cs">
-      <DependentUpon>ItemColorEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ItemColorSettings.Designer.cs">
-      <DependentUpon>ItemColorSettings.settings</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="MailEditorForm\MailEditorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MailEditorForm\MailEditorForm.Designer.cs">
-      <DependentUpon>MailEditorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecureValueForm\SecureValueForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SecureValueForm\SecureValueForm.Designer.cs">
-      <DependentUpon>SecureValueForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SettingsMenuForm\SettingsMenuForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SettingsMenuForm\SettingsMenuForm.Designer.cs">
-      <DependentUpon>SettingsMenuForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ToggleableAlertForm\AlertToggledEventArgs.cs" />
-    <Compile Include="ToggleableAlertForm\ToggleableAlertForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ToggleableAlertForm\ToggleableAlertForm.Designer.cs">
-      <DependentUpon>ToggleableAlertForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Managers\AcreImageManager.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\DataUtility.cs" />
-    <Compile Include="Utilities\ToolTipManager.cs" />
-    <EmbeddedResource Include="AboutBox\AboutBox.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ItemDisplay.resx">
-      <DependentUpon>ItemDisplay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\MessageEditor.resx">
-      <DependentUpon>MessageEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\VillagerDisplay.resx">
-      <DependentUpon>VillagerDisplay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ItemSelectionDialog.resx">
-      <DependentUpon>ItemSelectionDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\VillagerSelectionDialog.resx">
-      <DependentUpon>VillagerSelectionDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ItemColorEditor\ItemColorEditor.resx">
-      <DependentUpon>ItemColorEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MailEditorForm\MailEditorForm.resx">
-      <DependentUpon>MailEditorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecureValueForm\SecureValueForm.resx">
-      <DependentUpon>SecureValueForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SettingsMenuForm\SettingsMenuForm.resx">
-      <DependentUpon>SettingsMenuForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ToggleableAlertForm\ToggleableAlertForm.resx">
-      <DependentUpon>ToggleableAlertForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="ItemColorSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>ItemColorSettings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ACSE.Core\ACSE.Core.csproj">
-      <Project>{c4cc8c38-85d7-44eb-ae3a-14407c3184b5}</Project>
-      <Name>ACSE.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Animal_Crossing_NL_Badges_28x28.png">
+    <None Update="Resources\Animal_Crossing_NL_Badges_28x28.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Animal_Crossing_NL_NoBadge_28x28.png">
+    <None Update="Resources\Animal_Crossing_NL_NoBadge_28x28.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\BoxGlow.png">
+    <None Update="Resources\BoxGlow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Arrow.png">
+    <None Update="Resources\Arrow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Building.png">
+    <None Update="Resources\Building.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Buried.png">
+    <None Update="Resources\Buried.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Default Acre Items\GCN\0000.bin">
+    <None Update="Resources\Default Acre Items\GCN\0000.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0004.bin">
+    <None Update="Resources\Default Acre Items\GCN\0004.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0008.bin">
+    <None Update="Resources\Default Acre Items\GCN\0008.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\000C.bin">
+    <None Update="Resources\Default Acre Items\GCN\000C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0010.bin">
+    <None Update="Resources\Default Acre Items\GCN\0010.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0014.bin">
+    <None Update="Resources\Default Acre Items\GCN\0014.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0018.bin">
+    <None Update="Resources\Default Acre Items\GCN\0018.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\001C.bin">
+    <None Update="Resources\Default Acre Items\GCN\001C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0020.bin">
+    <None Update="Resources\Default Acre Items\GCN\0020.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0024.bin">
+    <None Update="Resources\Default Acre Items\GCN\0024.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0028.bin">
+    <None Update="Resources\Default Acre Items\GCN\0028.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\002C.bin">
+    <None Update="Resources\Default Acre Items\GCN\002C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0030.bin">
+    <None Update="Resources\Default Acre Items\GCN\0030.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0034.bin">
+    <None Update="Resources\Default Acre Items\GCN\0034.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0038.bin">
+    <None Update="Resources\Default Acre Items\GCN\0038.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\003C.bin">
+    <None Update="Resources\Default Acre Items\GCN\003C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0040.bin">
+    <None Update="Resources\Default Acre Items\GCN\0040.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0044.bin">
+    <None Update="Resources\Default Acre Items\GCN\0044.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0048.bin">
+    <None Update="Resources\Default Acre Items\GCN\0048.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\004C.bin">
+    <None Update="Resources\Default Acre Items\GCN\004C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0050.bin">
+    <None Update="Resources\Default Acre Items\GCN\0050.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0054.bin">
+    <None Update="Resources\Default Acre Items\GCN\0054.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0058.bin">
+    <None Update="Resources\Default Acre Items\GCN\0058.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\005C.bin">
+    <None Update="Resources\Default Acre Items\GCN\005C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0060.bin">
+    <None Update="Resources\Default Acre Items\GCN\0060.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0064.bin">
+    <None Update="Resources\Default Acre Items\GCN\0064.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0068.bin">
+    <None Update="Resources\Default Acre Items\GCN\0068.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\006C.bin">
+    <None Update="Resources\Default Acre Items\GCN\006C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0070.bin">
+    <None Update="Resources\Default Acre Items\GCN\0070.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0074.bin">
+    <None Update="Resources\Default Acre Items\GCN\0074.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0078.bin">
+    <None Update="Resources\Default Acre Items\GCN\0078.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\007C.bin">
+    <None Update="Resources\Default Acre Items\GCN\007C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0080.bin">
+    <None Update="Resources\Default Acre Items\GCN\0080.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0084.bin">
+    <None Update="Resources\Default Acre Items\GCN\0084.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0088.bin">
+    <None Update="Resources\Default Acre Items\GCN\0088.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\008C.bin">
+    <None Update="Resources\Default Acre Items\GCN\008C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0090.bin">
+    <None Update="Resources\Default Acre Items\GCN\0090.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0094.bin">
+    <None Update="Resources\Default Acre Items\GCN\0094.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0098.bin">
+    <None Update="Resources\Default Acre Items\GCN\0098.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\009C.bin">
+    <None Update="Resources\Default Acre Items\GCN\009C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00A0.bin">
+    <None Update="Resources\Default Acre Items\GCN\00A0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00A4.bin">
+    <None Update="Resources\Default Acre Items\GCN\00A4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00A8.bin">
+    <None Update="Resources\Default Acre Items\GCN\00A8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00AC.bin">
+    <None Update="Resources\Default Acre Items\GCN\00AC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00B0.bin">
+    <None Update="Resources\Default Acre Items\GCN\00B0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00B4.bin">
+    <None Update="Resources\Default Acre Items\GCN\00B4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00B8.bin">
+    <None Update="Resources\Default Acre Items\GCN\00B8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00BC.bin">
+    <None Update="Resources\Default Acre Items\GCN\00BC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00C0.bin">
+    <None Update="Resources\Default Acre Items\GCN\00C0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00C4.bin">
+    <None Update="Resources\Default Acre Items\GCN\00C4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00C8.bin">
+    <None Update="Resources\Default Acre Items\GCN\00C8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00CC.bin">
+    <None Update="Resources\Default Acre Items\GCN\00CC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00D0.bin">
+    <None Update="Resources\Default Acre Items\GCN\00D0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00D4.bin">
+    <None Update="Resources\Default Acre Items\GCN\00D4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00D8.bin">
+    <None Update="Resources\Default Acre Items\GCN\00D8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00DC.bin">
+    <None Update="Resources\Default Acre Items\GCN\00DC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00E0.bin">
+    <None Update="Resources\Default Acre Items\GCN\00E0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00E4.bin">
+    <None Update="Resources\Default Acre Items\GCN\00E4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00E8.bin">
+    <None Update="Resources\Default Acre Items\GCN\00E8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00EC.bin">
+    <None Update="Resources\Default Acre Items\GCN\00EC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00F0.bin">
+    <None Update="Resources\Default Acre Items\GCN\00F0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00F4.bin">
+    <None Update="Resources\Default Acre Items\GCN\00F4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00F8.bin">
+    <None Update="Resources\Default Acre Items\GCN\00F8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\00FC.bin">
+    <None Update="Resources\Default Acre Items\GCN\00FC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0100.bin">
+    <None Update="Resources\Default Acre Items\GCN\0100.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0104.bin">
+    <None Update="Resources\Default Acre Items\GCN\0104.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0108.bin">
+    <None Update="Resources\Default Acre Items\GCN\0108.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\010C.bin">
+    <None Update="Resources\Default Acre Items\GCN\010C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0110.bin">
+    <None Update="Resources\Default Acre Items\GCN\0110.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0114.bin">
+    <None Update="Resources\Default Acre Items\GCN\0114.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0118.bin">
+    <None Update="Resources\Default Acre Items\GCN\0118.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\011C.bin">
+    <None Update="Resources\Default Acre Items\GCN\011C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0120.bin">
+    <None Update="Resources\Default Acre Items\GCN\0120.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0124.bin">
+    <None Update="Resources\Default Acre Items\GCN\0124.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0128.bin">
+    <None Update="Resources\Default Acre Items\GCN\0128.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\012C.bin">
+    <None Update="Resources\Default Acre Items\GCN\012C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0130.bin">
+    <None Update="Resources\Default Acre Items\GCN\0130.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0134.bin">
+    <None Update="Resources\Default Acre Items\GCN\0134.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0138.bin">
+    <None Update="Resources\Default Acre Items\GCN\0138.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\013C.bin">
+    <None Update="Resources\Default Acre Items\GCN\013C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0140.bin">
+    <None Update="Resources\Default Acre Items\GCN\0140.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0144.bin">
+    <None Update="Resources\Default Acre Items\GCN\0144.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0148.bin">
+    <None Update="Resources\Default Acre Items\GCN\0148.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\014C.bin">
+    <None Update="Resources\Default Acre Items\GCN\014C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0150.bin">
+    <None Update="Resources\Default Acre Items\GCN\0150.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0154.bin">
+    <None Update="Resources\Default Acre Items\GCN\0154.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0158.bin">
+    <None Update="Resources\Default Acre Items\GCN\0158.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\015C.bin">
+    <None Update="Resources\Default Acre Items\GCN\015C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0160.bin">
+    <None Update="Resources\Default Acre Items\GCN\0160.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0164.bin">
+    <None Update="Resources\Default Acre Items\GCN\0164.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0168.bin">
+    <None Update="Resources\Default Acre Items\GCN\0168.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\016C.bin">
+    <None Update="Resources\Default Acre Items\GCN\016C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0170.bin">
+    <None Update="Resources\Default Acre Items\GCN\0170.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0174.bin">
+    <None Update="Resources\Default Acre Items\GCN\0174.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0178.bin">
+    <None Update="Resources\Default Acre Items\GCN\0178.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\017C.bin">
+    <None Update="Resources\Default Acre Items\GCN\017C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0180.bin">
+    <None Update="Resources\Default Acre Items\GCN\0180.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0184.bin">
+    <None Update="Resources\Default Acre Items\GCN\0184.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0188.bin">
+    <None Update="Resources\Default Acre Items\GCN\0188.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\018C.bin">
+    <None Update="Resources\Default Acre Items\GCN\018C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0190.bin">
+    <None Update="Resources\Default Acre Items\GCN\0190.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0194.bin">
+    <None Update="Resources\Default Acre Items\GCN\0194.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0198.bin">
+    <None Update="Resources\Default Acre Items\GCN\0198.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\019C.bin">
+    <None Update="Resources\Default Acre Items\GCN\019C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01A0.bin">
+    <None Update="Resources\Default Acre Items\GCN\01A0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01A4.bin">
+    <None Update="Resources\Default Acre Items\GCN\01A4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01A8.bin">
+    <None Update="Resources\Default Acre Items\GCN\01A8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01AC.bin">
+    <None Update="Resources\Default Acre Items\GCN\01AC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01B0.bin">
+    <None Update="Resources\Default Acre Items\GCN\01B0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01B4.bin">
+    <None Update="Resources\Default Acre Items\GCN\01B4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01B8.bin">
+    <None Update="Resources\Default Acre Items\GCN\01B8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01BC.bin">
+    <None Update="Resources\Default Acre Items\GCN\01BC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01C0.bin">
+    <None Update="Resources\Default Acre Items\GCN\01C0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01C4.bin">
+    <None Update="Resources\Default Acre Items\GCN\01C4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01C8.bin">
+    <None Update="Resources\Default Acre Items\GCN\01C8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01CC.bin">
+    <None Update="Resources\Default Acre Items\GCN\01CC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01D0.bin">
+    <None Update="Resources\Default Acre Items\GCN\01D0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01D4.bin">
+    <None Update="Resources\Default Acre Items\GCN\01D4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01D8.bin">
+    <None Update="Resources\Default Acre Items\GCN\01D8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01DC.bin">
+    <None Update="Resources\Default Acre Items\GCN\01DC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01E0.bin">
+    <None Update="Resources\Default Acre Items\GCN\01E0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01E4.bin">
+    <None Update="Resources\Default Acre Items\GCN\01E4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01E8.bin">
+    <None Update="Resources\Default Acre Items\GCN\01E8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01EC.bin">
+    <None Update="Resources\Default Acre Items\GCN\01EC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01F0.bin">
+    <None Update="Resources\Default Acre Items\GCN\01F0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01F4.bin">
+    <None Update="Resources\Default Acre Items\GCN\01F4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01F8.bin">
+    <None Update="Resources\Default Acre Items\GCN\01F8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\01FC.bin">
+    <None Update="Resources\Default Acre Items\GCN\01FC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0200.bin">
+    <None Update="Resources\Default Acre Items\GCN\0200.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0204.bin">
+    <None Update="Resources\Default Acre Items\GCN\0204.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0208.bin">
+    <None Update="Resources\Default Acre Items\GCN\0208.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\020C.bin">
+    <None Update="Resources\Default Acre Items\GCN\020C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0210.bin">
+    <None Update="Resources\Default Acre Items\GCN\0210.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0214.bin">
+    <None Update="Resources\Default Acre Items\GCN\0214.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0218.bin">
+    <None Update="Resources\Default Acre Items\GCN\0218.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\021C.bin">
+    <None Update="Resources\Default Acre Items\GCN\021C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0220.bin">
+    <None Update="Resources\Default Acre Items\GCN\0220.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0224.bin">
+    <None Update="Resources\Default Acre Items\GCN\0224.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0228.bin">
+    <None Update="Resources\Default Acre Items\GCN\0228.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\022C.bin">
+    <None Update="Resources\Default Acre Items\GCN\022C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0230.bin">
+    <None Update="Resources\Default Acre Items\GCN\0230.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0234.bin">
+    <None Update="Resources\Default Acre Items\GCN\0234.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0238.bin">
+    <None Update="Resources\Default Acre Items\GCN\0238.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\023C.bin">
+    <None Update="Resources\Default Acre Items\GCN\023C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0240.bin">
+    <None Update="Resources\Default Acre Items\GCN\0240.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0244.bin">
+    <None Update="Resources\Default Acre Items\GCN\0244.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0248.bin">
+    <None Update="Resources\Default Acre Items\GCN\0248.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\024C.bin">
+    <None Update="Resources\Default Acre Items\GCN\024C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0250.bin">
+    <None Update="Resources\Default Acre Items\GCN\0250.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0254.bin">
+    <None Update="Resources\Default Acre Items\GCN\0254.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0258.bin">
+    <None Update="Resources\Default Acre Items\GCN\0258.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\025C.bin">
+    <None Update="Resources\Default Acre Items\GCN\025C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0260.bin">
+    <None Update="Resources\Default Acre Items\GCN\0260.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0264.bin">
+    <None Update="Resources\Default Acre Items\GCN\0264.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0268.bin">
+    <None Update="Resources\Default Acre Items\GCN\0268.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\026C.bin">
+    <None Update="Resources\Default Acre Items\GCN\026C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0270.bin">
+    <None Update="Resources\Default Acre Items\GCN\0270.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0274.bin">
+    <None Update="Resources\Default Acre Items\GCN\0274.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0278.bin">
+    <None Update="Resources\Default Acre Items\GCN\0278.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\027C.bin">
+    <None Update="Resources\Default Acre Items\GCN\027C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0280.bin">
+    <None Update="Resources\Default Acre Items\GCN\0280.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0284.bin">
+    <None Update="Resources\Default Acre Items\GCN\0284.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0288.bin">
+    <None Update="Resources\Default Acre Items\GCN\0288.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\028C.bin">
+    <None Update="Resources\Default Acre Items\GCN\028C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0290.bin">
+    <None Update="Resources\Default Acre Items\GCN\0290.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0294.bin">
+    <None Update="Resources\Default Acre Items\GCN\0294.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0298.bin">
+    <None Update="Resources\Default Acre Items\GCN\0298.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\029C.bin">
+    <None Update="Resources\Default Acre Items\GCN\029C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02A0.bin">
+    <None Update="Resources\Default Acre Items\GCN\02A0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02A4.bin">
+    <None Update="Resources\Default Acre Items\GCN\02A4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02A8.bin">
+    <None Update="Resources\Default Acre Items\GCN\02A8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02AC.bin">
+    <None Update="Resources\Default Acre Items\GCN\02AC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02B0.bin">
+    <None Update="Resources\Default Acre Items\GCN\02B0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02B4.bin">
+    <None Update="Resources\Default Acre Items\GCN\02B4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02B8.bin">
+    <None Update="Resources\Default Acre Items\GCN\02B8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02BC.bin">
+    <None Update="Resources\Default Acre Items\GCN\02BC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02C0.bin">
+    <None Update="Resources\Default Acre Items\GCN\02C0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02C4.bin">
+    <None Update="Resources\Default Acre Items\GCN\02C4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02C8.bin">
+    <None Update="Resources\Default Acre Items\GCN\02C8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02CC.bin">
+    <None Update="Resources\Default Acre Items\GCN\02CC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02D0.bin">
+    <None Update="Resources\Default Acre Items\GCN\02D0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02D4.bin">
+    <None Update="Resources\Default Acre Items\GCN\02D4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02D8.bin">
+    <None Update="Resources\Default Acre Items\GCN\02D8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02DC.bin">
+    <None Update="Resources\Default Acre Items\GCN\02DC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02E0.bin">
+    <None Update="Resources\Default Acre Items\GCN\02E0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02E4.bin">
+    <None Update="Resources\Default Acre Items\GCN\02E4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02E8.bin">
+    <None Update="Resources\Default Acre Items\GCN\02E8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02EC.bin">
+    <None Update="Resources\Default Acre Items\GCN\02EC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02F0.bin">
+    <None Update="Resources\Default Acre Items\GCN\02F0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02F4.bin">
+    <None Update="Resources\Default Acre Items\GCN\02F4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02F8.bin">
+    <None Update="Resources\Default Acre Items\GCN\02F8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\02FC.bin">
+    <None Update="Resources\Default Acre Items\GCN\02FC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0300.bin">
+    <None Update="Resources\Default Acre Items\GCN\0300.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0304.bin">
+    <None Update="Resources\Default Acre Items\GCN\0304.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0308.bin">
+    <None Update="Resources\Default Acre Items\GCN\0308.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\030C.bin">
+    <None Update="Resources\Default Acre Items\GCN\030C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0310.bin">
+    <None Update="Resources\Default Acre Items\GCN\0310.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0314.bin">
+    <None Update="Resources\Default Acre Items\GCN\0314.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0318.bin">
+    <None Update="Resources\Default Acre Items\GCN\0318.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\031C.bin">
+    <None Update="Resources\Default Acre Items\GCN\031C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0320.bin">
+    <None Update="Resources\Default Acre Items\GCN\0320.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0324.bin">
+    <None Update="Resources\Default Acre Items\GCN\0324.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0328.bin">
+    <None Update="Resources\Default Acre Items\GCN\0328.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\032C.bin">
+    <None Update="Resources\Default Acre Items\GCN\032C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0330.bin">
+    <None Update="Resources\Default Acre Items\GCN\0330.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0334.bin">
+    <None Update="Resources\Default Acre Items\GCN\0334.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0338.bin">
+    <None Update="Resources\Default Acre Items\GCN\0338.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\033C.bin">
+    <None Update="Resources\Default Acre Items\GCN\033C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0340.bin">
+    <None Update="Resources\Default Acre Items\GCN\0340.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0344.bin">
+    <None Update="Resources\Default Acre Items\GCN\0344.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0348.bin">
+    <None Update="Resources\Default Acre Items\GCN\0348.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\034C.bin">
+    <None Update="Resources\Default Acre Items\GCN\034C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0350.bin">
+    <None Update="Resources\Default Acre Items\GCN\0350.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0354.bin">
+    <None Update="Resources\Default Acre Items\GCN\0354.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0358.bin">
+    <None Update="Resources\Default Acre Items\GCN\0358.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\035C.bin">
+    <None Update="Resources\Default Acre Items\GCN\035C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0360.bin">
+    <None Update="Resources\Default Acre Items\GCN\0360.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0364.bin">
+    <None Update="Resources\Default Acre Items\GCN\0364.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0368.bin">
+    <None Update="Resources\Default Acre Items\GCN\0368.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\036C.bin">
+    <None Update="Resources\Default Acre Items\GCN\036C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0370.bin">
+    <None Update="Resources\Default Acre Items\GCN\0370.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0374.bin">
+    <None Update="Resources\Default Acre Items\GCN\0374.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0378.bin">
+    <None Update="Resources\Default Acre Items\GCN\0378.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\037C.bin">
+    <None Update="Resources\Default Acre Items\GCN\037C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0380.bin">
+    <None Update="Resources\Default Acre Items\GCN\0380.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0384.bin">
+    <None Update="Resources\Default Acre Items\GCN\0384.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0388.bin">
+    <None Update="Resources\Default Acre Items\GCN\0388.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\038C.bin">
+    <None Update="Resources\Default Acre Items\GCN\038C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0390.bin">
+    <None Update="Resources\Default Acre Items\GCN\0390.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0394.bin">
+    <None Update="Resources\Default Acre Items\GCN\0394.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0398.bin">
+    <None Update="Resources\Default Acre Items\GCN\0398.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\039C.bin">
+    <None Update="Resources\Default Acre Items\GCN\039C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03A0.bin">
+    <None Update="Resources\Default Acre Items\GCN\03A0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03A4.bin">
+    <None Update="Resources\Default Acre Items\GCN\03A4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03A8.bin">
+    <None Update="Resources\Default Acre Items\GCN\03A8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03AC.bin">
+    <None Update="Resources\Default Acre Items\GCN\03AC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03B0.bin">
+    <None Update="Resources\Default Acre Items\GCN\03B0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03B4.bin">
+    <None Update="Resources\Default Acre Items\GCN\03B4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03B8.bin">
+    <None Update="Resources\Default Acre Items\GCN\03B8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03BC.bin">
+    <None Update="Resources\Default Acre Items\GCN\03BC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03C0.bin">
+    <None Update="Resources\Default Acre Items\GCN\03C0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03C4.bin">
+    <None Update="Resources\Default Acre Items\GCN\03C4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03C8.bin">
+    <None Update="Resources\Default Acre Items\GCN\03C8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03CC.bin">
+    <None Update="Resources\Default Acre Items\GCN\03CC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03D0.bin">
+    <None Update="Resources\Default Acre Items\GCN\03D0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03D4.bin">
+    <None Update="Resources\Default Acre Items\GCN\03D4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03D8.bin">
+    <None Update="Resources\Default Acre Items\GCN\03D8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03DC.bin">
+    <None Update="Resources\Default Acre Items\GCN\03DC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03E0.bin">
+    <None Update="Resources\Default Acre Items\GCN\03E0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03E4.bin">
+    <None Update="Resources\Default Acre Items\GCN\03E4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03E8.bin">
+    <None Update="Resources\Default Acre Items\GCN\03E8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03EC.bin">
+    <None Update="Resources\Default Acre Items\GCN\03EC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03F0.bin">
+    <None Update="Resources\Default Acre Items\GCN\03F0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03F4.bin">
+    <None Update="Resources\Default Acre Items\GCN\03F4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03F8.bin">
+    <None Update="Resources\Default Acre Items\GCN\03F8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\03FC.bin">
+    <None Update="Resources\Default Acre Items\GCN\03FC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0400.bin">
+    <None Update="Resources\Default Acre Items\GCN\0400.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0404.bin">
+    <None Update="Resources\Default Acre Items\GCN\0404.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0408.bin">
+    <None Update="Resources\Default Acre Items\GCN\0408.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\040C.bin">
+    <None Update="Resources\Default Acre Items\GCN\040C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0410.bin">
+    <None Update="Resources\Default Acre Items\GCN\0410.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0414.bin">
+    <None Update="Resources\Default Acre Items\GCN\0414.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0418.bin">
+    <None Update="Resources\Default Acre Items\GCN\0418.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\041C.bin">
+    <None Update="Resources\Default Acre Items\GCN\041C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0420.bin">
+    <None Update="Resources\Default Acre Items\GCN\0420.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0424.bin">
+    <None Update="Resources\Default Acre Items\GCN\0424.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0428.bin">
+    <None Update="Resources\Default Acre Items\GCN\0428.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\042C.bin">
+    <None Update="Resources\Default Acre Items\GCN\042C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0430.bin">
+    <None Update="Resources\Default Acre Items\GCN\0430.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0434.bin">
+    <None Update="Resources\Default Acre Items\GCN\0434.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0438.bin">
+    <None Update="Resources\Default Acre Items\GCN\0438.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\043C.bin">
+    <None Update="Resources\Default Acre Items\GCN\043C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0440.bin">
+    <None Update="Resources\Default Acre Items\GCN\0440.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0444.bin">
+    <None Update="Resources\Default Acre Items\GCN\0444.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0448.bin">
+    <None Update="Resources\Default Acre Items\GCN\0448.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\044C.bin">
+    <None Update="Resources\Default Acre Items\GCN\044C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0450.bin">
+    <None Update="Resources\Default Acre Items\GCN\0450.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0454.bin">
+    <None Update="Resources\Default Acre Items\GCN\0454.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0458.bin">
+    <None Update="Resources\Default Acre Items\GCN\0458.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\045C.bin">
+    <None Update="Resources\Default Acre Items\GCN\045C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0460.bin">
+    <None Update="Resources\Default Acre Items\GCN\0460.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0464.bin">
+    <None Update="Resources\Default Acre Items\GCN\0464.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0468.bin">
+    <None Update="Resources\Default Acre Items\GCN\0468.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\046C.bin">
+    <None Update="Resources\Default Acre Items\GCN\046C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0470.bin">
+    <None Update="Resources\Default Acre Items\GCN\0470.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0474.bin">
+    <None Update="Resources\Default Acre Items\GCN\0474.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0478.bin">
+    <None Update="Resources\Default Acre Items\GCN\0478.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\047C.bin">
+    <None Update="Resources\Default Acre Items\GCN\047C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0480.bin">
+    <None Update="Resources\Default Acre Items\GCN\0480.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0484.bin">
+    <None Update="Resources\Default Acre Items\GCN\0484.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0488.bin">
+    <None Update="Resources\Default Acre Items\GCN\0488.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\048C.bin">
+    <None Update="Resources\Default Acre Items\GCN\048C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0490.bin">
+    <None Update="Resources\Default Acre Items\GCN\0490.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0494.bin">
+    <None Update="Resources\Default Acre Items\GCN\0494.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0498.bin">
+    <None Update="Resources\Default Acre Items\GCN\0498.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\049C.bin">
+    <None Update="Resources\Default Acre Items\GCN\049C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04A0.bin">
+    <None Update="Resources\Default Acre Items\GCN\04A0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04A4.bin">
+    <None Update="Resources\Default Acre Items\GCN\04A4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04A8.bin">
+    <None Update="Resources\Default Acre Items\GCN\04A8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04AC.bin">
+    <None Update="Resources\Default Acre Items\GCN\04AC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04B0.bin">
+    <None Update="Resources\Default Acre Items\GCN\04B0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04B4.bin">
+    <None Update="Resources\Default Acre Items\GCN\04B4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04B8.bin">
+    <None Update="Resources\Default Acre Items\GCN\04B8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04BC.bin">
+    <None Update="Resources\Default Acre Items\GCN\04BC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04C0.bin">
+    <None Update="Resources\Default Acre Items\GCN\04C0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04C4.bin">
+    <None Update="Resources\Default Acre Items\GCN\04C4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04C8.bin">
+    <None Update="Resources\Default Acre Items\GCN\04C8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04CC.bin">
+    <None Update="Resources\Default Acre Items\GCN\04CC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04D0.bin">
+    <None Update="Resources\Default Acre Items\GCN\04D0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04D4.bin">
+    <None Update="Resources\Default Acre Items\GCN\04D4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04D8.bin">
+    <None Update="Resources\Default Acre Items\GCN\04D8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04DC.bin">
+    <None Update="Resources\Default Acre Items\GCN\04DC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04E0.bin">
+    <None Update="Resources\Default Acre Items\GCN\04E0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04E4.bin">
+    <None Update="Resources\Default Acre Items\GCN\04E4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04E8.bin">
+    <None Update="Resources\Default Acre Items\GCN\04E8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04EC.bin">
+    <None Update="Resources\Default Acre Items\GCN\04EC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04F0.bin">
+    <None Update="Resources\Default Acre Items\GCN\04F0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04F4.bin">
+    <None Update="Resources\Default Acre Items\GCN\04F4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04F8.bin">
+    <None Update="Resources\Default Acre Items\GCN\04F8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\04FC.bin">
+    <None Update="Resources\Default Acre Items\GCN\04FC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0500.bin">
+    <None Update="Resources\Default Acre Items\GCN\0500.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0504.bin">
+    <None Update="Resources\Default Acre Items\GCN\0504.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0508.bin">
+    <None Update="Resources\Default Acre Items\GCN\0508.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\050C.bin">
+    <None Update="Resources\Default Acre Items\GCN\050C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0510.bin">
+    <None Update="Resources\Default Acre Items\GCN\0510.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0514.bin">
+    <None Update="Resources\Default Acre Items\GCN\0514.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0518.bin">
+    <None Update="Resources\Default Acre Items\GCN\0518.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\051C.bin">
+    <None Update="Resources\Default Acre Items\GCN\051C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0520.bin">
+    <None Update="Resources\Default Acre Items\GCN\0520.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0524.bin">
+    <None Update="Resources\Default Acre Items\GCN\0524.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0528.bin">
+    <None Update="Resources\Default Acre Items\GCN\0528.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\052C.bin">
+    <None Update="Resources\Default Acre Items\GCN\052C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0530.bin">
+    <None Update="Resources\Default Acre Items\GCN\0530.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0534.bin">
+    <None Update="Resources\Default Acre Items\GCN\0534.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0538.bin">
+    <None Update="Resources\Default Acre Items\GCN\0538.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\053C.bin">
+    <None Update="Resources\Default Acre Items\GCN\053C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0540.bin">
+    <None Update="Resources\Default Acre Items\GCN\0540.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0544.bin">
+    <None Update="Resources\Default Acre Items\GCN\0544.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0548.bin">
+    <None Update="Resources\Default Acre Items\GCN\0548.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\054C.bin">
+    <None Update="Resources\Default Acre Items\GCN\054C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0550.bin">
+    <None Update="Resources\Default Acre Items\GCN\0550.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0554.bin">
+    <None Update="Resources\Default Acre Items\GCN\0554.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0558.bin">
+    <None Update="Resources\Default Acre Items\GCN\0558.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\055C.bin">
+    <None Update="Resources\Default Acre Items\GCN\055C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0560.bin">
+    <None Update="Resources\Default Acre Items\GCN\0560.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0564.bin">
+    <None Update="Resources\Default Acre Items\GCN\0564.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0568.bin">
+    <None Update="Resources\Default Acre Items\GCN\0568.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\056C.bin">
+    <None Update="Resources\Default Acre Items\GCN\056C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0570.bin">
+    <None Update="Resources\Default Acre Items\GCN\0570.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0574.bin">
+    <None Update="Resources\Default Acre Items\GCN\0574.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0578.bin">
+    <None Update="Resources\Default Acre Items\GCN\0578.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\057C.bin">
+    <None Update="Resources\Default Acre Items\GCN\057C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0580.bin">
+    <None Update="Resources\Default Acre Items\GCN\0580.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0584.bin">
+    <None Update="Resources\Default Acre Items\GCN\0584.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0588.bin">
+    <None Update="Resources\Default Acre Items\GCN\0588.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\058C.bin">
+    <None Update="Resources\Default Acre Items\GCN\058C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0590.bin">
+    <None Update="Resources\Default Acre Items\GCN\0590.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0594.bin">
+    <None Update="Resources\Default Acre Items\GCN\0594.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\0598.bin">
+    <None Update="Resources\Default Acre Items\GCN\0598.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\059C.bin">
+    <None Update="Resources\Default Acre Items\GCN\059C.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\05A0.bin">
+    <None Update="Resources\Default Acre Items\GCN\05A0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\05A4.bin">
+    <None Update="Resources\Default Acre Items\GCN\05A4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\05A8.bin">
+    <None Update="Resources\Default Acre Items\GCN\05A8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\05AC.bin">
+    <None Update="Resources\Default Acre Items\GCN\05AC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\05B0.bin">
+    <None Update="Resources\Default Acre Items\GCN\05B0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\05B4.bin">
+    <None Update="Resources\Default Acre Items\GCN\05B4.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\05B8.bin">
+    <None Update="Resources\Default Acre Items\GCN\05B8.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\05BC.bin">
+    <None Update="Resources\Default Acre Items\GCN\05BC.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Default Acre Items\GCN\05C0.bin">
+    <None Update="Resources\Default Acre Items\GCN\05C0.bin">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\no_tpc.png">
+    <None Update="Resources\no_tpc.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PaletteArrow.png">
+    <None Update="Resources\PaletteArrow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Villager Crop.png">
+    <None Update="Resources\Villager Crop.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\VillagerHouse.png">
+    <None Update="Resources\VillagerHouse.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Villagers.jpg">
+    <None Update="Resources\Villagers.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\X.png">
+    <None Update="Resources\X.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -5732,33 +5534,31 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Costura.Fody.3.1.6\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.3.1.6\build\Costura.Fody.props'))" />
-    <Error Condition="!Exists('..\packages\Fody.3.2.16\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.3.2.16\build\Fody.targets'))" />
-  </Target>
-  <Import Project="..\packages\Fody.3.2.16\build\Fody.targets" Condition="Exists('..\packages\Fody.3.2.16\build\Fody.targets')" />
-        
-    <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))'">
-        <PostBuildEvent>del $(TargetDir)Newtonsoft.Json.xml
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Fody" Version="6.6.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.346201">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACSE.Core\ACSE.Core.csproj" />
+  </ItemGroup>
+  <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))'">
+    <PostBuildEvent>del $(TargetDir)Newtonsoft.Json.xml
                         del $(TargetDir)$(TargetName).pdb
                         del $(TargetDir)$(TargetName).exe.config
         </PostBuildEvent>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))'">
-       <PostBuildEvent>rm $(TargetDir)Newtonsoft.Json.xml
-                       rm $(TargetDir)$(TargetName).pdb
-                       rm $(TargetDir)$(TargetName).exe.config
-       </PostBuildEvent>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))'">
-       <PostBuildEvent>rm $(TargetDir)Newtonsoft.Json.xml
-                       rm $(TargetDir)$(TargetName).pdb
-                       rm $(TargetDir)$(TargetName).exe.config
-       </PostBuildEvent>
-    </PropertyGroup>
-    
+  </PropertyGroup>
 </Project>
